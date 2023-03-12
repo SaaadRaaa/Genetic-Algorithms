@@ -107,7 +107,6 @@ def createPopBin(popSize, nDim=4):
 # -----------------------------------------
 # -----------------------------------------
 
-
 def fitCal(func, x):
     """
     Calculate fitness of one or more chromosomes.
@@ -577,7 +576,7 @@ def mutIntCre(chro, steps=[-1, 1], prob=[0.5, 0.5], pm=0.2):
 # ----------------------------------------
 
 
-def mutConUni(chro, lb=None, ub=None, pm=0.2):
+def mutConUni(chro, lb=None, ub=None, pm=0.1):
     """
     Uniform mutation for real values.
     """
@@ -725,6 +724,6 @@ def surSelRep(old, childs, oldFit, chiFit, dup=False):
         fits = fits[inds]
 
     args = np.argsort(0-fits)
-    mask = args < n
-    sur = popu[mask]
+    # mask = args < n
+    sur = popu[args[0:n]]
     return sur
